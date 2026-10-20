@@ -43,14 +43,11 @@
 
   .hero-visual{position:relative;display:flex;justify-content:center}
   .candle-stage{
-    position:relative;width:340px;aspect-ratio:1;border-radius:50%;
-    background:radial-gradient(circle at 40% 30%, #fff, var(--cream-dim) 70%);
-    display:flex;align-items:center;justify-content:center;
+    position:relative;width:100%;max-width:420px;aspect-ratio:1;border-radius:28px;
+    overflow:hidden;box-shadow:0 30px 60px -24px rgba(58,46,38,.4);
   }
-  .candle{position:relative;width:120px;height:160px;border-radius:10px 10px 4px 4px;background:linear-gradient(180deg,#F6E7D0,#E7CFA8);box-shadow:0 24px 40px -18px rgba(58,46,38,.4)}
-  .candle::before{content:'';position:absolute;top:-22px;left:50%;transform:translateX(-50%);width:3px;height:22px;background:#5a4433}
-  .candle::after{content:'';position:absolute;top:-34px;left:50%;transform:translateX(-50%);width:14px;height:18px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle,#FFD27A,var(--terra) 80%);filter:blur(.2px)}
-  .candle-tag{position:absolute;bottom:18px;right:30px;background:#fff;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--ink-soft);box-shadow:0 10px 20px -10px rgba(58,46,38,.3)}
+  .candle-stage img{width:100%;height:100%;object-fit:cover;display:block}
+  .candle-tag{position:absolute;bottom:18px;right:18px;background:#fff;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:700;color:var(--ink-soft);box-shadow:0 10px 20px -10px rgba(58,46,38,.3)}
 
   /* ---- Products ---- */
   .section{padding:80px 0}
@@ -62,21 +59,9 @@
   @media(max-width:860px){.prod-grid{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:560px){.prod-grid{grid-template-columns:1fr}}
   .prod{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 2px 0 var(--line)}
-  .prod-img{aspect-ratio:1;display:flex;align-items:center;justify-content:center;position:relative}
-  .prod-img .mini-candle{width:70px;height:90px;border-radius:8px 8px 3px 3px;box-shadow:0 14px 24px -12px rgba(58,46,38,.35)}
-  .prod-img .mini-candle::before{content:'';position:absolute;margin-top:-16px;margin-left:33px;width:2px;height:16px;background:#5a4433}
-  .prod1 .prod-img{background:linear-gradient(160deg,#F6E7D0,#EAD4AE)}
-  .prod1 .mini-candle{background:linear-gradient(180deg,#fff,#F3E6D4)}
-  .prod2 .prod-img{background:linear-gradient(160deg,#E7D9C6,#C9B18C)}
-  .prod2 .mini-candle{background:linear-gradient(180deg,#E7C9A0,#C79A5F)}
-  .prod3 .prod-img{background:linear-gradient(160deg,#D9E0CC,#AEBB97)}
-  .prod3 .mini-candle{background:linear-gradient(180deg,#EDEFE4,#C4CDAF)}
-  .prod4 .prod-img{background:linear-gradient(160deg,#EAD6D0,#C99C8E)}
-  .prod4 .mini-candle{background:linear-gradient(180deg,#F1DCD3,#D9B2A3)}
-  .prod5 .prod-img{background:linear-gradient(160deg,#E0D6E8,#B9A3C9)}
-  .prod5 .mini-candle{background:linear-gradient(180deg,#EFE5F4,#CBB7DB)}
-  .prod6 .prod-img{background:linear-gradient(160deg,#F2E3C8,#D8B878)}
-  .prod6 .mini-candle{background:linear-gradient(180deg,#FBF1DD,#E5C78C)}
+  .prod-img{aspect-ratio:1;position:relative;overflow:hidden;background:var(--cream-dim)}
+  .prod-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+  .prod:hover .prod-img img{transform:scale(1.04)}
   .prod-body{padding:18px 20px 22px}
   .prod-body h3{font-family:'Fraunces',serif;font-weight:500;font-size:18px;margin-bottom:4px}
   .prod-body .scent{font-size:13px;color:var(--ink-soft);margin-bottom:12px}
@@ -86,10 +71,13 @@
   .add:hover{background:var(--terra);color:#fff}
 
   /* ---- Story band ---- */
-  .story{background:var(--sage);color:#fff;border-radius:28px;max-width:1140px;margin:0 auto;padding:60px 48px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-  @media(max-width:760px){.story{grid-template-columns:1fr;padding:44px 28px}}
+  .story{background:var(--sage);color:#fff;border-radius:28px;max-width:1140px;margin:0 auto;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+  @media(max-width:760px){.story{grid-template-columns:1fr}}
+  .story-img{min-height:320px;background-size:cover;background-position:center}
+  .story-copy{padding:48px 44px}
   .story h2{font-family:'Fraunces',serif;font-weight:500;font-size:clamp(24px,3vw,32px);margin-bottom:14px}
-  .story p{opacity:.9;line-height:1.65;font-size:15px}
+  .story p{opacity:.9;line-height:1.65;font-size:15px;margin-bottom:16px}
+  .story p:last-child{margin-bottom:0;font-style:italic}
 
   /* ---- CTA ---- */
   .cta{text-align:center;padding:90px 0}
@@ -133,7 +121,7 @@
     </div>
     <div class="hero-visual">
       <div class="candle-stage">
-        <div class="candle"></div>
+        <img src="img/hero.jpg" alt="Velas de cera de soya hechas a mano, con cinta de yute">
         <div class="candle-tag">40+ horas de combustión</div>
       </div>
     </div>
@@ -147,12 +135,12 @@
   </div>
   <div class="wrap">
     <div class="prod-grid">
-      <div class="prod prod1"><div class="prod-img"><div class="mini-candle"></div></div><div class="prod-body"><h3>Lino Fresco</h3><div class="scent">algodón limpio · flor blanca</div><div class="prod-foot"><span class="price">$9.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
-      <div class="prod prod2"><div class="prod-img"><div class="mini-candle"></div></div><div class="prod-body"><h3>Sándalo & Vainilla</h3><div class="scent">cálido · amaderado</div><div class="prod-foot"><span class="price">$10.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
-      <div class="prod prod3"><div class="prod-img"><div class="mini-candle"></div></div><div class="prod-body"><h3>Eucaliptus del Sur</h3><div class="scent">bosque · mentolado</div><div class="prod-foot"><span class="price">$9.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
-      <div class="prod prod4"><div class="prod-img"><div class="mini-candle"></div></div><div class="prod-body"><h3>Rosa Mosqueta</h3><div class="scent">floral · suave</div><div class="prod-foot"><span class="price">$10.490</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
-      <div class="prod prod5"><div class="prod-img"><div class="mini-candle"></div></div><div class="prod-body"><h3>Lavanda de Valle</h3><div class="scent">relajante · herbal</div><div class="prod-foot"><span class="price">$9.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
-      <div class="prod prod6"><div class="prod-img"><div class="mini-candle"></div></div><div class="prod-body"><h3>Miel & Canela</h3><div class="scent">dulce · especiado</div><div class="prod-foot"><span class="price">$10.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
+      <div class="prod prod1"><div class="prod-img"><img src="img/prod-lino.jpg" alt="Vela Lino Fresco con flores secas"></div><div class="prod-body"><h3>Lino Fresco</h3><div class="scent">algodón limpio · flor blanca</div><div class="prod-foot"><span class="price">$9.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
+      <div class="prod prod2"><div class="prod-img"><img src="img/prod-sandalo.jpg" alt="Vela Sándalo y Vainilla en cuenco de cerámica"></div><div class="prod-body"><h3>Sándalo & Vainilla</h3><div class="scent">cálido · amaderado</div><div class="prod-foot"><span class="price">$10.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
+      <div class="prod prod3"><div class="prod-img"><img src="img/prod-eucaliptus.jpg" alt="Vela Eucaliptus del Sur sobre pedestal"></div><div class="prod-body"><h3>Eucaliptus del Sur</h3><div class="scent">bosque · mentolado</div><div class="prod-foot"><span class="price">$9.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
+      <div class="prod prod4"><div class="prod-img"><img src="img/prod-rosa.jpg" alt="Vela Rosa Mosqueta con pétalos secos"></div><div class="prod-body"><h3>Rosa Mosqueta</h3><div class="scent">floral · suave</div><div class="prod-foot"><span class="price">$10.490</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
+      <div class="prod prod5"><div class="prod-img"><img src="img/prod-lavanda.jpg" alt="Vela Lavanda de Valle con ramas de lavanda"></div><div class="prod-body"><h3>Lavanda de Valle</h3><div class="scent">relajante · herbal</div><div class="prod-foot"><span class="price">$9.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
+      <div class="prod prod6"><div class="prod-img"><img src="img/prod-miel.jpg" alt="Vela Miel y Canela con especias"></div><div class="prod-body"><h3>Miel & Canela</h3><div class="scent">dulce · especiado</div><div class="prod-foot"><span class="price">$10.990</span><button class="add" onclick="window.open('https://wa.me/56992405072?text=Hola%2C%20estoy%20interesada%20en%20el%20dise%C3%B1o%20de%20esta%20p%C3%A1gina%20web%2C%20%C2%BFpodemos%20conversar%20los%20detalles%3F','_blank')">Consultar</button></div></div></div>
     </div>
   </div>
 </section>
@@ -160,12 +148,11 @@
 <section class="section" id="historia">
   <div class="wrap">
     <div class="story">
-      <div>
+      <div class="story-img" style="background-image:url('img/story.jpg')" role="img" aria-label="Artesana empaquetando velas hechas a mano en su cocina"></div>
+      <div class="story-copy">
         <h2>Una tradición familiar, hecha vela.</h2>
         <p>Cera & Luna nació en la cocina de nuestra casa en el sur, mezclando cera de soya con los aromas que nos recuerdan a hogar. Hoy seguimos haciendo cada vela a mano, en lotes pequeños, para cuidar cada detalle.</p>
-      </div>
-      <div>
-        <p style="font-style:italic">"No vendemos velas — vendemos el momento en que prendes una y por fin te sientas a descansar."</p>
+        <p>"No vendemos velas — vendemos el momento en que prendes una y por fin te sientas a descansar."</p>
       </div>
     </div>
   </div>
